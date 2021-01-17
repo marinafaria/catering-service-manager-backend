@@ -21,11 +21,10 @@ func main() {
 
 	var tag Tag
 	rows, err := db.Query("SELECT * FROM Unidade_medida")
-	//rows,err = db.QueryRow(sqlStatement).Scan(&tag.unidade_medida)
 	for rows.Next() {
 		err := rows.Scan(&tag.unidade_medida)
 		if err != nil {
-			panic(err.Error()) // proper error handling instead of panic in your app
+			panic(err.Error())
 		}
 		log.Println(tag.unidade_medida)
 	}
