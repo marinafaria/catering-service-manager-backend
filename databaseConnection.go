@@ -8,10 +8,10 @@ import (
 )
 
 type Tag struct {
-	unidade_medida string
+	unidadeMedida string
 }
 
-func main() {
+func getDataBaseValues() {
 	db, err := sql.Open("mysql", "root:@Aa12345@tcp(158.101.119.13:3306)/DB")
 
 	if err != nil {
@@ -20,12 +20,12 @@ func main() {
 	defer db.Close()
 
 	var tag Tag
-	rows, err := db.Query("SELECT * FROM Unidade_medida")
+	rows, err := db.Query("SELECT * FROM UnidadeMedida")
 	for rows.Next() {
-		err := rows.Scan(&tag.unidade_medida)
+		err := rows.Scan(&tag.unidadeMedida)
 		if err != nil {
 			panic(err.Error())
 		}
-		log.Println(tag.unidade_medida)
+		log.Println(tag.unidadeMedida)
 	}
 }
