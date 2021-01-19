@@ -61,15 +61,14 @@ type Orcamentos struct {
 	statusOrcamento   string
 }
 
-//Produtos is...
-type Produtos struct {
-	id                   int
-	nome                 string
-	categoria            string
-	UnidadeMedida        string
-	precoProdutoUnitario float64
-	quantidadeEstoque    float64
-}
+// type Produtos struct {
+// 	id                   int
+// 	nome                 string
+// 	categoria            string
+// 	UnidadeMedida        string
+// 	precoProdutoUnitario float64
+// 	quantidadeEstoque    float64
+// }
 
 //ProdutosOrcados is...
 type ProdutosOrcados struct {
