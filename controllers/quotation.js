@@ -8,7 +8,7 @@ class Quotation {
     }
 
     static async create(quotation) {
-        return await db('Orcamentos').insert({ ...quotation, statusOrcamento: 'Iniciado' });
+        return await db('Orcamentos').insert({ ...quotation, statusOrcamento: 'Não aprovado', dataOrcamento: new Date() });
     }
 }
 
