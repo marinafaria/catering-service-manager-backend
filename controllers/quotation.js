@@ -31,7 +31,8 @@ class Quotation {
                 Produtos.nome,
                 quantidade,
                 precoProdutoOrcado,
-                quantidadeEstoque
+                quantidadeEstoque,
+                unidadeMedida
         FROM Orcamentos
         JOIN ProdutosOrcados ON Orcamentos.id = ProdutosOrcados.idOrcamento
         JOIN Produtos ON Produtos.id = ProdutosOrcados.idProduto
