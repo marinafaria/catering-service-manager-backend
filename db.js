@@ -5,7 +5,8 @@ const knex = require('knex')({
         user: 'root',
         password: '@Aa12345',
         database: 'DB'
-    }
+    },
+    pool: { min: 0, max: 7 }
 });
 
 module.exports = knex;

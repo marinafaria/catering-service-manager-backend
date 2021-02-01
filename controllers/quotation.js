@@ -6,12 +6,12 @@ class Quotation {
     }
 
     static async create(quotation, quotedProducts) {
-        const trx = await db.transaction();
-        const ids = await trx('Orcamentos').insert({ ...quotation, statusOrcamento: 'Não aprovado', dataOrcamento: new Date() });
+        // const trx = await db.transaction();
+        const ids = await db('Orcamentos').insert({ ...quotation, statusOrcamento: 'Não aprovado', dataOrcamento: new Date() });
         for (let index = 0; index < quotedProducts.length; index++) {
             quotedProducts[index].idOrcamento = ids[0];
         }
-        await trx('ProdutosOrcados').insert(quotedProducts);
+        await db('ProdutosOrcados').insert(quotedProducts);
         return ids;
     }
 
@@ -32,7 +32,7 @@ class Quotation {
                 quantidade,
                 precoProdutoOrcado,
                 quantidadeEstoque,
-                unidadeMedida
+                Produtos.unidadeMedida
         FROM Orcamentos
         JOIN ProdutosOrcados ON Orcamentos.id = ProdutosOrcados.idOrcamento
         JOIN Produtos ON Produtos.id = ProdutosOrcados.idProduto
