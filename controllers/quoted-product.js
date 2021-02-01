@@ -5,8 +5,8 @@ class QuotedProduct {
         return await db('ProdutosOrcados').select();
     }
 
-    static async create(quotedProduct) {
-        return await db('ProdutosOrcados').insert({ ...quotedProduct });
+    static async create(quotedProducts) {
+        return await db('ProdutosOrcados').insert(quotedProducts);
     }
 }
 

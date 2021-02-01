@@ -20,8 +20,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        console.log(req.body);
-        const result = await Quotation.create(req.body.quotation);
+        const result = await Quotation.create(req.body.quotation, req.body.products);
         res.status(201).json({
             data: {
                 id: result[0]
@@ -33,5 +32,18 @@ router.post('/', async (req, res) => {
         });
     }
 });
+
+router.get('/:id', async (req, res) => {
+    try {
+        const result = await Quotation.getById(req.params.id);
+        res.status(200).json({
+            data: result[0]
+        });
+    } catch (error) {
+        res.status(400).json({
+            error
+        });
+    }
+})
 
 module.exports = router;
